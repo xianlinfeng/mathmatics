@@ -42,14 +42,14 @@ func num_letters(n int) int {
 		return tens[n]
 	}
 	if n == 1000 {
-		return 3 + 8
+		return 3 + 8 // one thousand
 	}
 	// special case "one hundred", "two hundred", etc
 	if n%100 == 0 {
-		return digits[n/100] + 7
+		return digits[n/100] + 7 // **
 	}
 	if n > 100 {
-		return digits[n/100] + 10 + num_letters(n%100)
+		return digits[n/100] + 10 + num_letters(n%100) // handred and
 	}
 	if n%10 == 0 {
 		return tens[n/10]
