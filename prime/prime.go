@@ -1,6 +1,31 @@
 package prime
 
-import "math"
+import (
+	"math"
+	"strconv"
+)
+
+// splitInt will split a integer number into a slice
+func splitInt(n int) []int {
+	var nums = []int{}
+	for i := n % 10; n != 0; i = n % 10 {
+		nums = append([]int{i}, nums...)
+		n /= 10
+	}
+	return nums
+
+}
+
+// mergeSlice will merge a slice into a integer
+func mergeSlice(nums []int) int {
+	var s string
+	for i := range nums {
+		s += strconv.Itoa(nums[i])
+	}
+
+	n, _ := strconv.Atoi(s)
+	return n
+}
 
 // IsPrime check if the int is a prime number
 func isPrime(n int) bool {
