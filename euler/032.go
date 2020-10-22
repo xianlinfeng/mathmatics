@@ -27,7 +27,8 @@ func main() {
 		}
 	}
 	sum := 0
-	for k, _ := range panprods {
+	for k := range panprods {
+		fmt.Println(k)
 		sum += k
 	}
 	println(sum)
