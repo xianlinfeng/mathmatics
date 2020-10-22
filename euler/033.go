@@ -65,6 +65,7 @@ func main() {
 			}
 		}
 	}
+	fmt.Println(fractions)
 	p := fractions[0]
 	for i := 1; i < len(fractions); i++ {
 		p = Product(p, fractions[i])
