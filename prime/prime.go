@@ -1,4 +1,4 @@
-package prime
+package main
 
 import (
 	"math"
@@ -28,7 +28,7 @@ func mergeSlice(nums []int) int {
 }
 
 // IsPrime check if the int is a prime number
-func isPrime(n int) bool {
+func isPrime(n uint64) bool {
 	if n <= 3 {
 		return n > 1
 	}
@@ -39,7 +39,7 @@ func isPrime(n int) bool {
 	}
 
 	sqrt := math.Sqrt(float64(n))
-	for i := 5; i <= int(sqrt); i += 6 {
+	for i := uint64(5); i <= uint64(sqrt); i += 6 {
 		if n%i == 0 || n%(i+2) == 0 {
 			return false
 		}
@@ -60,4 +60,8 @@ func sieve(ch chan int, max int) {
 		}
 	}
 	close(ch)
+}
+
+func main() {
+	// isPrime(7)
 }
