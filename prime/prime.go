@@ -13,7 +13,6 @@ func splitInt(n int) []int {
 		n /= 10
 	}
 	return nums
-
 }
 
 // mergeSlice will merge a slice into a integer
