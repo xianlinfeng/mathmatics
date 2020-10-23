@@ -3,7 +3,21 @@ package main
 import (
 	"math"
 	"strconv"
+	"strings"
 )
+
+// isPandigital check if the number in string is pandigital or not.
+func isPandigital(s string) bool {
+	if len(s) != 9 {
+		return false
+	}
+	for i := 1; i < 10; i++ {
+		if !strings.Contains(s, strconv.Itoa(i)) {
+			return false
+		}
+	}
+	return true
+}
 
 // splitInt will split a integer number into a slice
 func splitInt(n int) []int {
