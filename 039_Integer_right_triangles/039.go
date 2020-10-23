@@ -17,6 +17,7 @@ func main() {
 			}
 		}
 	}
+
 	fmt.Println(m)
 	var max int
 	for p, v := range m {
