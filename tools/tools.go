@@ -1,10 +1,29 @@
 package main
 
 import (
+	"fmt"
+	"io/ioutil"
 	"math"
 	"strconv"
 	"strings"
 )
+
+func readFile() []string {
+	buf, err := ioutil.ReadFile("fileName.txt")
+	if err != nil {
+		panic(err)
+	}
+	fileStr := string(buf)
+	names := strings.SplitN(fileStr, ",", -1)
+
+	var strs []string
+	for _, n := range names {
+		fmt.Println(n)
+		s := strings.Trim(n, "\"")
+		strs = append(strs, s)
+	}
+	return strs
+}
 
 // isPandigital check if the number in string is pandigital or not.
 func isPandigital(s string) bool {
