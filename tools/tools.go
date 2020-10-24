@@ -4,9 +4,57 @@ import (
 	"fmt"
 	"io/ioutil"
 	"math"
+	"sort"
 	"strconv"
 	"strings"
 )
+
+// findMIn : give a lice and a int n, find the minimum iteger's index which is greater than n
+// used to swap tail[index] and permu[i-1]
+func findMin(nums []int, n int) int {
+	var min = 100
+	var index int
+
+	for i, v := range nums {
+		if v > n {
+			if nums[i] < min {
+				min = nums[i]
+				index = i
+			}
+		}
+	}
+	return index
+}
+func next(permu []int) []int {
+	for i := len(permu) - 1; i >= 1; i-- {
+		if permu[i-1] < permu[i] {
+			tail := permu[i:]
+			minIndex := findMin(tail, permu[i-1])
+			permu[i-1], tail[minIndex] = tail[minIndex], permu[i-1]
+			sort.Ints(tail)
+			return permu
+		}
+	}
+	return nil
+}
+
+func permute(s string) []string {
+	if len(s) == 1 {
+		return []string{s}
+	}
+
+	perms := []string{}
+	head := string(s[0])
+	tail := s[1:]
+
+	for _, perm := range permute(tail) {
+		for i := 0; i < len(s); i++ {
+			newperm := perm[:i] + head + perm[i:]
+			perms = append(perms, newperm)
+		}
+	}
+	return perms
+}
 
 func readFile() []string {
 	buf, err := ioutil.ReadFile("fileName.txt")
