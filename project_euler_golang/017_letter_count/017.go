@@ -47,7 +47,7 @@ func getLetters(n int) int {
 
 	// frome 100, 200, 300
 	if n%100 == 0 {
-		return digit[n/100] + 7 // handred
+		return digit[n/100] + 7 // hundred
 	}
 
 	if n > 100 {

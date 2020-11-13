@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func move(i, j int) int {
-	if i == 2 || j == 2 {
+	if i == 20 || j == 20 {
 		return 1
 	}
 
